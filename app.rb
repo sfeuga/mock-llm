@@ -36,7 +36,7 @@ else
   end
 end
 
-get '/health' do
+get '/' do
   content_type :json
   status 200
   { message: 'Mock app is running smoothly!' }.to_json
