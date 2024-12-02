@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gem "faraday"
+gem "nokogiri"
+gem "open-uri"
+gem "faker"
+gem "sinatra"
+gem "rackup"
+gem "puma"
+gem "open3"
