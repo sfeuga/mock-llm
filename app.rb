@@ -20,7 +20,6 @@ post '/chat' do
   if params['query']
     content_type 'text/event-stream'
     cache_control :no_cache
-    connection 'keep-alive'
 
     # Generate a random number between 1 and 3 for how many paragraphs to send
     num_paragraphs = rand(1..3)
