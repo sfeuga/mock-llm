@@ -23,17 +23,22 @@ post '/chat' do
 
     # Generate a random number between 1 and 3 for how many paragraphs to send
     num_paragraphs = rand(1..30)
+    paragraph = ''
 
     stream do |out|
       num_paragraphs.times do
         # Generate a random Lorem Ipsum paragraph
-        paragraph = Faker::Lorem.paragraph
+        if paragraph == ''
+          paragraph = params['query'] + '\n\n' + Faker::Lorem.paragraph
+        else
+          paragraph = Faker::Lorem.paragraph
+        end
 
         # Send it to the client
         out << "data: #{paragraph}\n\n"
 
-        # Sleep for 3 seconds before sending the next message
-        sleep 3
+        # Sleep for 1 seconds before sending the next message
+        sleep 1
       end
     # After 3 paragraphs, close the connection
     end
