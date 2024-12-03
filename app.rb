@@ -22,14 +22,14 @@ post '/chat' do
     cache_control :no_cache
 
     # Generate a random number between 1 and 3 for how many paragraphs to send
-    num_paragraphs = rand(1..30)
+    num_paragraphs = rand(1..13)
     paragraph = ''
 
     stream do |out|
       num_paragraphs.times do
         # Generate a random Lorem Ipsum paragraph
         if paragraph == ''
-          paragraph = params['query'] + '\n\n' + Faker::Lorem.paragraph
+          paragraph = params['query'] + "\n\n" + Faker::Lorem.paragraph
         else
           paragraph = Faker::Lorem.paragraph
         end
