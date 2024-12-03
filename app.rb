@@ -22,7 +22,7 @@ post '/chat' do
     cache_control :no_cache
 
     # Generate a random number between 1 and 3 for how many paragraphs to send
-    num_paragraphs = rand(1..3)
+    num_paragraphs = rand(1..30)
 
     stream do |out|
       num_paragraphs.times do
@@ -33,7 +33,7 @@ post '/chat' do
         out << "data: #{paragraph}\n\n"
 
         # Sleep for 3 seconds before sending the next message
-        sleep 1
+        sleep 3
       end
     # After 3 paragraphs, close the connection
     end
